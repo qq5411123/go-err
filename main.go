@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/pkg/errors"
 	"go-err/dao"
 	"log"
 )
@@ -15,6 +16,6 @@ func main()  {
 
 	//业务层处理空数据，其他异常交给数据层处理
 	if err != nil && dao.IsErrNoRows(err) {
-		log.Println("GetPerson No Data")
+		log.Printf("%v",  errors.Cause(err))
 	}
 }

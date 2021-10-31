@@ -33,7 +33,7 @@ func GetPerson() error {
 	//空数据属于业务逻辑 return
 	case err == sql.ErrNoRows:
 
-		return errors.Wrap( err,  "" )
+		return errors.Wrap( err,  "GetPerson No Data" )
 
 	//datebase exception stop run
 	case err != nil:
